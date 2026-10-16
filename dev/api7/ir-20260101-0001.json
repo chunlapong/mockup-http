@@ -3,7 +3,7 @@
   "cases": [
     {
       "id": "ir-20260101-0001",
-      "name": "queryOTCTransaction",
+      "name": "test-dev",
       "request": {
         "method": "POST",
         "url": "${API7_ADMIN_BASE_URL}/apisix/admin/routes",
@@ -12,44 +12,39 @@
           "Content-Type": "application/json"
         },
         "body": {
-          "name": "queryOTCTransaction",
+          "name": "test-dev",
+          "labels": {
+            "Agentic AI for Contact Center Kore AI": "Active"
+          },
           "methods": [
+            "GET",
             "POST"
           ],
           "paths": [
-            "/NebulaWS/otc/queryOTCTransaction"
+            "/orders"
           ],
           "plugins": {
             "key-auth": {
               "header": "x-api-key",
               "hide_credentials": true
-            },
-            "openid-connect": {
-              "bearer_only": true,
-              "client_id": "${OIDC_CLIENT_ID}",
-              "client_secret": "${OIDC_CLIENT_SECRET}",
-              "discovery": "${OIDC_DISCOVERY_URL}",
-              "session": {
-                "secret": "${OIDC_SESSION_SECRET}"
-              }
             }
           },
-          "priority": 10,
           "vars": [
             [
-              "http_authorization",
-              "~~",
-              "Bearer\\s+"
+              "http_x-api-key",
+              "~=",
+              "null"
             ]
           ],
+          "priority": 0,
           "enable_websocket": false,
-          "service_id": "${service_id}"
+          "service_id": "8796b33c-3162-47dc-b1d7-d1dcfd41f4fc"
         },
         "expect": {
           "status": 201
         }
       },
-      "note": "environment=dev; profile=oidc-bearer; revision=1"
+      "note": "environment=dev"
     }
   ]
 }
