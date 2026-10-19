@@ -23,20 +23,6 @@
           "paths": [
             "/orders"
           ],
-          "plugins": {
-            "key-auth": {
-              "header": "x-api-key",
-              "hide_credentials": true
-            }
-          },
-          "vars": [
-            [
-              "http_x-api-key",
-              "~=",
-              "null"
-            ]
-          ],
-          "priority": 0,
           "enable_websocket": false,
           "service_id": "8796b33c-3162-47dc-b1d7-d1dcfd41f4fc"
         },
