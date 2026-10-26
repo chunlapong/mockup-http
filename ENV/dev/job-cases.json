@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "cases": [
+    {
+      "id": "ir-20260101-0001",
+      "name": "Order Create",
+      "request": {
+        "method": "POST",
+        "url": "${API7_ADMIN_BASE_URL}/apisix/admin/routes",
+        "headers": {
+          "X-API-KEY": "${API7_ADMIN_API_KEY}",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "name": "Order Create",
+          "labels": {
+            "Agentic AI for Contact Center Kore AI": "Active"
+          },
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": [
+            "/orders"
+          ],
+          "plugins": {
+            "key-auth": {}
+          },
+          "vars": [
+            [
+              "http_x-api-key",
+              "~=",
+              "null"
+            ]
+          ],
+          "priority": 0,
+          "enable_websocket": false,
+          "service_id": "123123"
+        },
+        "expect": {
+          "status": 201
+        }
+      },
+      "note": "environment=dev"
+    }
+  ]
+}
