@@ -1,0 +1,50 @@
+{
+  "version": 3,
+  "execution": {
+    "mode": "config_only"
+  },
+  "cases": [
+    {
+      "id": "ir-20260101-0002",
+      "name": "Order Create",
+      "gateway": {
+        "target": "api7",
+        "resource": "routes",
+        "resourceId": "test-dev",
+        "method": "POST",
+        "data": {
+          "name": "Order Create",
+          "labels": {
+            "Agentic AI for Contact Center Kore AI": "Active"
+          },
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": [
+            "/orders"
+          ],
+          "plugins": {
+            "key-auth": {}
+          },
+          "vars": [
+            [
+              "http_x-api-key",
+              "~=",
+              "null"
+            ]
+          ],
+          "priority": 0,
+          "enable_websocket": false,
+          "service_id": "1222w"
+        },
+        "expect": {
+          "status": [
+            200,
+            201
+          ]
+        }
+      }
+    }
+  ]
+}
