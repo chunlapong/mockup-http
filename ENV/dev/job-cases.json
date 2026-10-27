@@ -45,6 +45,48 @@
           ]
         }
       }
+    },
+    {
+      "id": "ir-20260101-0002",
+      "name": "test-dev",
+      "gateway": {
+        "target": "api7",
+        "resource": "routes",
+        "resourceId": "test-dev",
+        "method": "PUT",
+        "data": {
+          "name": "Order Create",
+          "labels": {
+            "Agentic AI for Contact Center Kore AI": "Active"
+          },
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": [
+            "/orders"
+          ],
+          "plugins": {
+            "key-auth": {}
+          },
+          "vars": [
+            [
+              "http_x-api-key",
+              "~=",
+              "null"
+            ]
+          ],
+          "priority": 0,
+          "enable_websocket": false,
+          "service_id": "12332"
+        },
+        "expect": {
+          "status": [
+            200,
+            201
+          ]
+        }
+      }
     }
   ]
 }
