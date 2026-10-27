@@ -45,6 +45,45 @@
           ]
         }
       }
+    },
+    {
+      "id": "ir-20260101-0003",
+      "name": "Order Create",
+      "gateway": {
+        "target": "api7",
+        "resource": "routes",
+        "resourceId": "test-dev",
+        "method": "POST",
+        "data": {
+          "name": "Order Create",
+          "methods": [
+            "GET",
+            "POST"
+          ],
+          "paths": [
+            "/orders"
+          ],
+          "plugins": {
+            "key-auth": {}
+          },
+          "vars": [
+            [
+              "http_x-api-key",
+              "~=",
+              "null"
+            ]
+          ],
+          "priority": 0,
+          "enable_websocket": false,
+          "service_id": "33"
+        },
+        "expect": {
+          "status": [
+            200,
+            201
+          ]
+        }
+      }
     }
   ]
 }
